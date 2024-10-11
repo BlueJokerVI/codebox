@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: dev
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER  #knif4j处理使用
+server:
+  port: 8102
+
