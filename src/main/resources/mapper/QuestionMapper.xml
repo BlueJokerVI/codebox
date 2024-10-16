@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cct.codebox.dao.question.mapper.QuestionMapper">
+
+    <resultMap id="BaseResultMap" type="com.cct.codebox.domain.question.Question">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="questionName" column="question_name" jdbcType="VARCHAR"/>
+            <result property="questionIoExample" column="question_io_example" jdbcType="VARCHAR"/>
+            <result property="questionIoTotal" column="question_io_total" jdbcType="INTEGER"/>
+            <result property="questionDesc" column="question_desc" jdbcType="VARCHAR"/>
+            <result property="questionTags" column="question_tags" jdbcType="VARCHAR"/>
+            <result property="questionMemLimit" column="question_mem_limit" jdbcType="INTEGER"/>
+            <result property="questionTimeLimit" column="question_time_limit" jdbcType="INTEGER"/>
+            <result property="questionSubmitNum" column="question_submit_num" jdbcType="INTEGER"/>
+            <result property="questionAcNum" column="question_ac_num" jdbcType="INTEGER"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,question_name,question_io_example,
+        question_io_total,question_desc,question_tags,
+        question_mem_limit,question_time_limit,question_submit_num,
+        question_ac_num,create_time,update_time,
+        is_delete
+    </sql>
+</mapper>

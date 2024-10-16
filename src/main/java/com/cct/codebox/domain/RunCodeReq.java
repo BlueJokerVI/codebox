@@ -1,11 +1,12 @@
 package com.cct.codebox.domain;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * @BelongsProject: redmeatojbackend
@@ -21,30 +22,30 @@ public class RunCodeReq {
     /**
      * 语言
      */
-    @NotNull
     String language;
 
     /**
      * 代码
      */
-    @NotNull
     String code;
 
     /**
-     * 输入内容
+     * 提交记录id
      */
-    @NotNull
-    String inputContent;
+    Long submitRecordId;
+
+    /**
+     * 测试内容
+     */
+    List<TestCase> testCases;
 
     /**
      * 时间限制
      */
-    @NotNull
     Integer timeLimit;
 
     /**
      * 内存限制
      */
-    @NotNull
     Integer memoryLimit;
 }

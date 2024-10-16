@@ -1,11 +1,11 @@
 package com.cct.codebox.service;
 
 
+
 import com.cct.codebox.domain.RunCodeReq;
 import com.cct.codebox.domain.RunCodeResp;
 
 import javax.validation.Valid;
-import java.util.concurrent.CompletableFuture;
 
 /**
  * @BelongsProject: redmeatojbackend
@@ -18,7 +18,6 @@ public interface RunCodeService {
 
     boolean support(String language);
 
-
     /**
      * 运行代码
      *
@@ -26,4 +25,5 @@ public interface RunCodeService {
      * @return
      */
     RunCodeResp run(@Valid RunCodeReq runCodeReq);
+
 }

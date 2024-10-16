@@ -1,9 +1,30 @@
 spring:
   profiles:
-    active: dev
+    active: test
   mvc:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER  #knif4j处理使用
+  datasource:
+    url: jdbc:mysql://${redmeatoj.mysql.ip}:${redmeatoj.mysql.port}/${redmeatoj.mysql.db}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: ${redmeatoj.mysql.username}
+    password: ${redmeatoj.mysql.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
 server:
   port: 8102
+
+rocketmq:
+  name-server: ${codebox.rocketmq.name-server}
+  # Consumer 配置项
+  consumer:
+    access-key: ${rocketmq.access-key} # Access Key ，可阅读 https://github.com/apache/rocketmq/blob/master/docs/cn/acl/user_guide.md 文档
+    secret-key: ${rocketmq.secret-key} # Secret Key
+
+### codebox ###
+codebox:
+  auth:
+    header: redmeat
+    secret: cct
 

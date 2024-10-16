@@ -6,10 +6,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import javax.validation.constraints.NotNull;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -33,7 +30,7 @@ public class ThreadPoolConfig {
     public static final String CODE_BOX_MONITOR_MEMORY_EXECUTOR = "codeBoxMonitorMemoryExecutor";
     
     @Bean(name = CODE_BOX_EXECUTOR)
-    public Executor codeBoxInputExecutor() {
+    public ExecutorService codeBoxInputExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         //实现优雅停机，使线程池内任务执行完毕在停机
         executor.setWaitForTasksToCompleteOnShutdown(true);
@@ -46,7 +43,7 @@ public class ThreadPoolConfig {
         //满了调用线程执行，丢掉任务
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardOldestPolicy());
         executor.initialize();
-        return executor;
+        return executor.getThreadPoolExecutor();
     }
 
 
