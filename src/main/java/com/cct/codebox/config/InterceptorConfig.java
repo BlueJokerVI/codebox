@@ -12,10 +12,10 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Autowired
     private AuthenticationInterceptor authenticationInterceptor;
 
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//
-//        registry.addInterceptor(authenticationInterceptor)
-//                .addPathPatterns("/**");
-//    }
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+
+        registry.addInterceptor(authenticationInterceptor)
+                .addPathPatterns("/**");
+    }
 }

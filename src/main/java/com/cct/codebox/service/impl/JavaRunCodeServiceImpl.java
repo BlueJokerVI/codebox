@@ -247,7 +247,6 @@ public class JavaRunCodeServiceImpl implements RunCodeService {
             InputStream errorStream = process.getErrorStream();
 
             //使用收集进程异常输出内容，防止阻塞
-            //使用收集进程异常输出内容，防止阻塞
             Future<String> errorOutputFuture = executor.submit(() -> IoUtil.readUtf8(errorStream));
 
             // 等待进程执行完成，并设置超时时间

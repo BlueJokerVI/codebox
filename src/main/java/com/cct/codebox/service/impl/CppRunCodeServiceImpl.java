@@ -222,7 +222,7 @@ public class CppRunCodeServiceImpl implements RunCodeService {
         String prePath = new File(saveTmpFilePath).getParent();
 
         //构造编译命令
-        String compileCmd = String.format("g++ -fno-asm -Wall -lm --static -O2 -std=c++11 -DONLINE_JUDGE -o %s\\Main %s", prePath, saveTmpFilePath);
+        String compileCmd = String.format("g++ -fno-asm -Wall -lm --static -O2 -std=c++11 -DONLINE_JUDGE -o %s%sMain %s", prePath, File.separator, saveTmpFilePath);
         try {
             Process process = Runtime.getRuntime().exec(compileCmd);
 
